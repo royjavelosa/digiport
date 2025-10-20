@@ -44,9 +44,8 @@ const Portfolio = () => {
           </p>
 
           <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            15+ years leading global teams across energy, telecom, banking, and
-            startups. Specializing in cloud-native, event-driven systems and
-            platform modernization.
+            15+ years leading global teams and building mission-critical
+            platforms, from powering Super Bowls to connecting 65M+ users.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mb-16">
@@ -75,22 +74,38 @@ const Portfolio = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">15+</div>
-              <div className="text-slate-400 text-sm">Years Experience</div>
+          <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-cyan-500/50 transition-all">
+              <div className="text-5xl md:text-6xl font-bold text-cyan-400 mb-3">
+                15+
+              </div>
+              <div className="text-slate-300 text-base md:text-lg">
+                Years Experience
+              </div>
             </div>
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="text-4xl font-bold text-blue-400 mb-2">65M+</div>
-              <div className="text-slate-400 text-sm">Users Impacted</div>
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-blue-500/50 transition-all">
+              <div className="text-5xl md:text-6xl font-bold text-blue-400 mb-3">
+                65M+
+              </div>
+              <div className="text-slate-300 text-base md:text-lg">
+                Users Impacted
+              </div>
             </div>
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="text-4xl font-bold text-purple-400 mb-2">27</div>
-              <div className="text-slate-400 text-sm">Team Size Led</div>
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all">
+              <div className="text-5xl md:text-6xl font-bold text-purple-400 mb-3">
+                27
+              </div>
+              <div className="text-slate-300 text-base md:text-lg">
+                Team Size Led
+              </div>
             </div>
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="text-4xl font-bold text-pink-400 mb-2">5+</div>
-              <div className="text-slate-400 text-sm">Countries</div>
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-pink-500/50 transition-all">
+              <div className="text-5xl md:text-6xl font-bold text-pink-400 mb-3">
+                5+
+              </div>
+              <div className="text-slate-300 text-base md:text-lg">
+                Countries
+              </div>
             </div>
           </div>
         </div>
