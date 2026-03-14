@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   AreaChart,
   Area,
@@ -16,16 +16,26 @@ import {
   YAxis,
 } from "recharts";
 
-// Random walk: nudge a value within [min, max] by ±spread
-const rw = (prev, min, max, spread) =>
-  Math.max(min, Math.min(max, prev + (Math.random() - 0.5) * spread));
+// Momentum walk: smooth organic motion with inertia, boundary repulsion, sinusoidal bias
+// Returns [newValue, newVelocity]
+const mw = (val, vel, min, max, bias = 0, speed = 1) => {
+  const range = max - min;
+  const maxV = range * 0.032 * speed;
+  let v = (vel + (Math.random() - 0.5) * maxV * 1.4 + bias) * 0.88;
+  v = Math.max(-maxV, Math.min(maxV, v));
+  // Soft boundary repulsion — push back when within 12% of edge
+  const margin = range * 0.12;
+  if (val - min < margin) v += (margin - (val - min)) * 0.06;
+  if (max - val < margin) v -= (margin - (max - val)) * 0.06;
+  return [Math.max(min, Math.min(max, val + v)), v];
+};
 
-// Build an initial series of n points via random walk
+// Build an initial series of n points (used for init only)
 const initSeries = (n, min, max) => {
   const out = [];
   let v = (min + max) / 2;
   for (let i = 0; i < n; i++) {
-    v = rw(v, min, max, (max - min) * 0.18);
+    v = Math.max(min, Math.min(max, v + (Math.random() - 0.5) * (max - min) * 0.18));
     out.push(v);
   }
   return out;
@@ -33,29 +43,32 @@ const initSeries = (n, min, max) => {
 
 // ── 1. Hero: live system-monitoring area chart (3 overlapping series) ─────────
 export const HeroChart = () => {
-  const N = 30;
+  const N = 60;
   const [data, setData] = useState(() => {
     const a = initSeries(N, 50, 95);
     const b = initSeries(N, 25, 70);
     const c = initSeries(N, 35, 80);
     return a.map((v, i) => ({ i, a: v, b: b[i], c: c[i] }));
   });
+  const vRef = useRef({ a: 0, b: 0, c: 0, phase: Math.random() * Math.PI * 2 });
 
   useEffect(() => {
     const id = setInterval(() => {
       setData((prev) => {
-        const last = prev[prev.length - 1];
-        return [
-          ...prev.slice(1),
-          {
-            i: last.i + 1,
-            a: rw(last.a, 50, 95, 9),
-            b: rw(last.b, 25, 70, 9),
-            c: rw(last.c, 35, 80, 9),
-          },
-        ];
+        const r = vRef.current;
+        r.phase += 0.08;
+        let next = prev;
+        for (let s = 0; s < 4; s++) {
+          const last = next[next.length - 1];
+          const [na, va] = mw(last.a, r.a, 30, 98, Math.sin(r.phase) * 0.8, 4);
+          const [nb, vb] = mw(last.b, r.b, 15, 78, Math.sin(r.phase + 2.1) * 0.8, 4);
+          const [nc, vc] = mw(last.c, r.c, 20, 88, Math.sin(r.phase + 4.2) * 0.8, 4);
+          r.a = va; r.b = vb; r.c = vc;
+          next = [...next.slice(1), { i: last.i + 1, a: na, b: nb, c: nc }];
+        }
+        return next;
       });
-    }, 1500);
+    }, 2500);
     return () => clearInterval(id);
   }, []);
 
@@ -89,7 +102,8 @@ export const HeroChart = () => {
             strokeWidth={2}
             fill="url(#hg-a)"
             isAnimationActive
-            animationDuration={700}
+            animationDuration={2300}
+            animationEasing="ease-in-out"
           />
           <Area
             type="monotone"
@@ -98,7 +112,8 @@ export const HeroChart = () => {
             strokeWidth={2}
             fill="url(#hg-b)"
             isAnimationActive
-            animationDuration={700}
+            animationDuration={2300}
+            animationEasing="ease-in-out"
           />
           <Area
             type="monotone"
@@ -107,7 +122,8 @@ export const HeroChart = () => {
             strokeWidth={2}
             fill="url(#hg-c)"
             isAnimationActive
-            animationDuration={700}
+            animationDuration={2300}
+            animationEasing="ease-in-out"
           />
         </AreaChart>
       </ResponsiveContainer>
@@ -123,16 +139,21 @@ export const JourneyChart = () => {
   const [data, setData] = useState(() =>
     JOURNEY_YEARS.map((y, i) => ({ y, v: JOURNEY_BASE[i] }))
   );
+  const vRef = useRef({ vels: JOURNEY_YEARS.map(() => 0), phase: Math.random() * Math.PI * 2 });
 
   useEffect(() => {
     const id = setInterval(() => {
-      setData((prev) =>
-        prev.map((d, i) => ({
-          ...d,
-          v: rw(d.v, JOURNEY_BASE[i] - 9, JOURNEY_BASE[i] + 9, 5),
-        }))
-      );
-    }, 2000);
+      setData((prev) => {
+        const r = vRef.current;
+        r.phase += 0.05;
+        return prev.map((d, i) => {
+          const base = JOURNEY_BASE[i];
+          const [newV, vel] = mw(d.v, r.vels[i], base - 20, base + 20, Math.sin(r.phase + i * 0.6) * 0.6, 4);
+          r.vels[i] = vel;
+          return { ...d, v: newV };
+        });
+      });
+    }, 1600);
     return () => clearInterval(id);
   }, []);
 
@@ -178,20 +199,20 @@ export const ImpactChart = () => {
     }))
   );
 
+  const vRef = useRef({ users: 0, events: 0, phase: Math.random() * Math.PI * 2 });
+
   useEffect(() => {
     const id = setInterval(() => {
       setData((prev) => {
+        const r = vRef.current;
+        r.phase += 0.065;
         const last = prev[prev.length - 1];
-        return [
-          ...prev.slice(1),
-          {
-            i: last.i + 1,
-            users: rw(last.users, 5, 100, 7),
-            events: rw(last.events, 10, 95, 9),
-          },
-        ];
+        const [nu, vu] = mw(last.users, r.users, 5, 100, Math.sin(r.phase) * 0.4);
+        const [ne, ve] = mw(last.events, r.events, 10, 95, Math.sin(r.phase + 1.8) * 0.4);
+        r.users = vu; r.events = ve;
+        return [...prev.slice(1), { i: last.i + 1, users: nu, events: ne }];
       });
-    }, 1500);
+    }, 1300);
     return () => clearInterval(id);
   }, []);
 
@@ -248,20 +269,20 @@ export const VenturesChart = () => {
     }))
   );
 
+  const vRef = useRef({ product: 0, traction: 0, phase: Math.random() * Math.PI * 2 });
+
   useEffect(() => {
     const id = setInterval(() => {
       setData((prev) => {
+        const r = vRef.current;
+        r.phase += 0.055;
         const last = prev[prev.length - 1];
-        return [
-          ...prev.slice(1),
-          {
-            i: last.i + 1,
-            product: rw(last.product, 8, 92, 8),
-            traction: rw(last.traction, 5, 95, 9),
-          },
-        ];
+        const [np, vp] = mw(last.product, r.product, 8, 92, Math.sin(r.phase) * 0.4);
+        const [nt, vt] = mw(last.traction, r.traction, 5, 95, Math.sin(r.phase + 2.5) * 0.4);
+        r.product = vp; r.traction = vt;
+        return [...prev.slice(1), { i: last.i + 1, product: np, traction: nt }];
       });
-    }, 2000);
+    }, 1500);
     return () => clearInterval(id);
   }, []);
 
