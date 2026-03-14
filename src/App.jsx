@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+import { PLDTIcon } from "./icons/PLDTIcon";
+import { MITIcon } from "./icons/MITIcon";
+import { AmdocsIcon } from "./icons/AmdocsIcon";
+import { PowinIcon } from "./icons/PowinIcon";
 import {
   HeroChart,
   JourneyChart,
@@ -384,8 +388,8 @@ const Portfolio = () => {
                 </div>
                 <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-500/50 transition-colors">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 bg-cyan-500 rounded-2xl">
-                      <Zap size={32} className="text-white" />
+                    <div className="p-4 bg-cyan-500 rounded-2xl flex items-center justify-center">
+                      <PowinIcon size={32} color="white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-4">
@@ -421,8 +425,8 @@ const Portfolio = () => {
                 </div>
                 <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-500/50 transition-colors">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 bg-blue-500 rounded-2xl">
-                      <Globe size={32} className="text-white" />
+                    <div className="p-4 bg-blue-500 rounded-2xl flex items-center justify-center">
+                      <AmdocsIcon size={32} color="white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-4">
@@ -454,8 +458,8 @@ const Portfolio = () => {
                 </div>
                 <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-purple-500/50 transition-colors">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 bg-purple-500 rounded-2xl">
-                      <Users size={32} className="text-white" />
+                    <div className="p-4 bg-purple-500 rounded-2xl flex items-center justify-center">
+                      <AmdocsIcon size={32} color="white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-4">
@@ -487,8 +491,8 @@ const Portfolio = () => {
                 </div>
                 <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-pink-500/50 transition-colors">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 bg-pink-500 rounded-2xl">
-                      <Code2 size={32} className="text-white" />
+                    <div className="p-4 bg-pink-500 rounded-2xl flex items-center justify-center">
+                      <PLDTIcon size={32} color="white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-4">
@@ -632,7 +636,7 @@ const Portfolio = () => {
             >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-1">
-                  <BookOpen className="text-red-400 flex-shrink-0" size={28} />
+                  <MITIcon size={28} color="#f87171" />
                   <h3 className="text-3xl font-bold">MIT</h3>
                 </div>
                 <div className="pl-0">
@@ -715,6 +719,8 @@ const Portfolio = () => {
           </div>
         )}
       </div>
+
+
 
       <footer className="py-20 px-3 md:px-6 text-center max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-6 pb-1 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
