@@ -174,7 +174,7 @@ const Portfolio = () => {
             {/* Divider */}
             <div className="hidden md:block w-px h-5 bg-white/20 flex-shrink-0" />
             {/* Tabs */}
-          <div className="flex gap-2 overflow-x-auto flex-1 justify-end">
+          <div className="flex gap-2 overflow-x-auto flex-1 justify-end py-1">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
