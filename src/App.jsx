@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import {
+  HeroChart,
+  JourneyChart,
+  ImpactChart,
+  VenturesChart,
+  EducationChart,
+} from "./BackgroundCharts";
+import {
   Mail,
   Linkedin,
   Code2,
@@ -23,6 +30,7 @@ const Portfolio = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5"></div>
+        <HeroChart />
 
         <div className="relative z-10 max-w-5xl w-full text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-8">
@@ -113,7 +121,7 @@ const Portfolio = () => {
 
       <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex gap-2 overflow-x-auto py-4">
+          <div className="flex gap-2 overflow-x-auto py-4 justify-center">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
@@ -283,164 +291,161 @@ const Portfolio = () => {
 
       <div className="max-w-6xl mx-auto px-6 py-20">
         {activeTab === "journey" && (
-          <div className="space-y-8">
+          <div className="relative overflow-hidden">
+            <JourneyChart />
+            <div className="relative z-10 space-y-8">
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Career Journey
             </h2>
 
-            <div className="space-y-6">
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-cyan-500 rounded-2xl">
-                    <Zap size={32} className="text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">
-                          Powin Energy
-                        </h3>
-                        <p className="text-cyan-400">
-                          Software Engineering Manager
-                        </p>
-                      </div>
-                      <span className="text-slate-400 text-sm">2023-2025</span>
+            <div className="relative">
+              {/* Vertical gradient line */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
+
+              {/* Powin Energy */}
+              <div className="relative flex gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
+                </div>
+                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-500/50 transition-colors">
+                  <div className="flex items-start gap-6">
+                    <div className="p-4 bg-cyan-500 rounded-2xl">
+                      <Zap size={32} className="text-white" />
                     </div>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-cyan-400 mt-0.5"
-                        />{" "}
-                        Led Command Center UI for Super Bowl LVIII
-                      </li>
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-cyan-400 mt-0.5"
-                        />{" "}
-                        Managed Waratah Super Battery operations
-                      </li>
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-cyan-400 mt-0.5"
-                        />{" "}
-                        Built AWS serverless tools
-                      </li>
-                    </ul>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <span className="text-slate-400 text-sm">2023–2025</span>
+                          <h3 className="text-2xl font-bold text-white">Powin Energy</h3>
+                          <p className="text-cyan-400">Software Engineering Manager</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300">
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
+                          Led Command Center UI for Super Bowl LVIII
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
+                          Managed Waratah Super Battery operations
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
+                          Built AWS serverless tools
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-blue-500 rounded-2xl">
-                    <Globe size={32} className="text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">
-                          Amdocs
-                        </h3>
-                        <p className="text-blue-400">Engineering Manager</p>
-                      </div>
-                      <span className="text-slate-400 text-sm">2022-2023</span>
+              {/* Amdocs — Engineering Manager */}
+              <div className="relative flex gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
+                </div>
+                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-500/50 transition-colors">
+                  <div className="flex items-start gap-6">
+                    <div className="p-4 bg-blue-500 rounded-2xl">
+                      <Globe size={32} className="text-white" />
                     </div>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-blue-400 mt-0.5"
-                        />{" "}
-                        Led project for 65M subscribers
-                      </li>
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-blue-400 mt-0.5"
-                        />{" "}
-                        Delivered eSIM and MNP features
-                      </li>
-                    </ul>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <span className="text-slate-400 text-sm">2022–2023</span>
+                          <h3 className="text-2xl font-bold text-white">Amdocs</h3>
+                          <p className="text-blue-400">Engineering Manager</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300">
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
+                          Led project for 65M subscribers
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
+                          Delivered eSIM and MNP features
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-purple-500 rounded-2xl">
-                    <Users size={32} className="text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">
-                          Amdocs
-                        </h3>
-                        <p className="text-purple-400">Team Lead R&D</p>
-                      </div>
-                      <span className="text-slate-400 text-sm">2019-2021</span>
+              {/* Amdocs — Team Lead R&D */}
+              <div className="relative flex gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
+                </div>
+                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+                  <div className="flex items-start gap-6">
+                    <div className="p-4 bg-purple-500 rounded-2xl">
+                      <Users size={32} className="text-white" />
                     </div>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-purple-400 mt-0.5"
-                        />{" "}
-                        Led 3 Scrum teams (27 engineers)
-                      </li>
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-purple-400 mt-0.5"
-                        />{" "}
-                        Global production support
-                      </li>
-                    </ul>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <span className="text-slate-400 text-sm">2019–2021</span>
+                          <h3 className="text-2xl font-bold text-white">Amdocs</h3>
+                          <p className="text-purple-400">Team Lead R&amp;D</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300">
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
+                          Led 3 Scrum teams (27 engineers)
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
+                          Global production support
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-pink-500 rounded-2xl">
-                    <Code2 size={32} className="text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">PLDT</h3>
-                        <p className="text-pink-400">Lead Software Engineer</p>
-                      </div>
-                      <span className="text-slate-400 text-sm">2008-2018</span>
+              {/* PLDT */}
+              <div className="relative flex gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
+                </div>
+                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-pink-500/50 transition-colors">
+                  <div className="flex items-start gap-6">
+                    <div className="p-4 bg-pink-500 rounded-2xl">
+                      <Code2 size={32} className="text-white" />
                     </div>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-pink-400 mt-0.5"
-                        />{" "}
-                        Built first in-house billing system
-                      </li>
-                      <li className="flex gap-2">
-                        <ChevronRight
-                          size={20}
-                          className="text-pink-400 mt-0.5"
-                        />{" "}
-                        Led BI system development
-                      </li>
-                    </ul>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <span className="text-slate-400 text-sm">2008–2018</span>
+                          <h3 className="text-2xl font-bold text-white">PLDT</h3>
+                          <p className="text-pink-400">Lead Software Engineer</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300">
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
+                          Built first in-house billing system
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
+                          Led BI system development
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         )}
 
         {activeTab === "impact" && (
-          <div className="space-y-8">
+          <div className="relative overflow-hidden">
+            <ImpactChart />
+            <div className="relative z-10 space-y-8">
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Real-World Impact
             </h2>
@@ -474,11 +479,14 @@ const Portfolio = () => {
                 <p className="text-slate-300">Philippines in-house platform</p>
               </div>
             </div>
+            </div>
           </div>
         )}
 
         {activeTab === "ventures" && (
-          <div className="space-y-8">
+          <div className="relative overflow-hidden">
+            <VenturesChart />
+            <div className="relative z-10 space-y-8">
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Startup Ventures
             </h2>
@@ -531,11 +539,14 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         )}
 
         {activeTab === "education" && (
-          <div className="space-y-8">
+          <div className="relative overflow-hidden">
+            <EducationChart />
+            <div className="relative z-10 space-y-8">
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Education
             </h2>
@@ -583,6 +594,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         )}
