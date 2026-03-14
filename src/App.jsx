@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   HeroChart,
   JourneyChart,
@@ -26,7 +26,17 @@ const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("journey");
   const [showModal, setShowModal] = useState(false);
   const [focusedEdu, setFocusedEdu] = useState(null);
+  const [isNavSticky, setIsNavSticky] = useState(false);
   const navRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const navTop = navRef.current?.getBoundingClientRect().top ?? 1;
+      setIsNavSticky(navTop <= 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleTabClick = (tab, openModal = false) => {
     setActiveTab(tab);
@@ -166,20 +176,24 @@ const Portfolio = () => {
       <div ref={navRef} className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 py-4 px-4">
-            {/* Identity anchor */}
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
-              <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
-            </div>
-            {/* Divider */}
-            <div className="hidden md:block w-px h-5 bg-white/20 flex-shrink-0" />
+            {/* Identity anchor — only visible when nav is pinned */}
+            {isNavSticky && (
+              <>
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
+                  <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
+                </div>
+                {/* Divider */}
+                <div className="hidden md:block w-px h-5 bg-white/20 flex-shrink-0" />
+              </>
+            )}
             {/* Tabs */}
-          <div className="flex gap-2 overflow-x-auto py-1 pr-4">
+          <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 md:justify-center">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => handleTabClick(tab)}
-                className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize ${
+                className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize flex-shrink-0 ${
                   activeTab === tab
                     ? "bg-cyan-500 text-white"
                     : "bg-white/5 text-slate-400 hover:bg-white/10"
@@ -190,7 +204,7 @@ const Portfolio = () => {
             ))}
             <button
               onClick={() => handleTabClick("projects", true)}
-              className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 ${
+              className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 flex-shrink-0 ${
                 activeTab === "projects"
                   ? "bg-cyan-500 text-white"
                   : "bg-white/5 text-slate-200 hover:bg-white/10 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
