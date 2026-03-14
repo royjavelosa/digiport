@@ -183,17 +183,17 @@ const Portfolio = () => {
       <div ref={navRef} className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 py-4 px-4">
-            {/* Identity anchor — only visible when nav is pinned */}
-            {isNavSticky && (
-              <>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
-                  <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
-                </div>
-                {/* Divider */}
-                <div className="hidden md:block w-px h-5 bg-white/20 flex-shrink-0" />
-              </>
-            )}
+            {/* Identity anchor — fades in when nav is pinned */}
+            <div className={`flex items-center gap-2 flex-shrink-0 transition-all duration-500 ${
+              isNavSticky ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3 pointer-events-none"
+            }`}>
+              <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
+              <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
+            </div>
+            {/* Divider */}
+            <div className={`hidden md:block w-px h-5 bg-white/20 flex-shrink-0 transition-all duration-500 ${
+              isNavSticky ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`} />
             {/* Tabs */}
           <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 pr-4 md:justify-center">
             {["journey", "impact", "ventures", "education"].map((tab) => (
