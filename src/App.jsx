@@ -191,7 +191,7 @@ const Portfolio = () => {
               </>
             )}
             {/* Tabs */}
-          <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 md:justify-center">
+          <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 pr-4 md:justify-center">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
