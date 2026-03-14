@@ -41,6 +41,17 @@ const initSeries = (n, min, max) => {
   return out;
 };
 
+// Pause all chart intervals when the browser tab is not visible
+const usePageVisible = () => {
+  const visible = useRef(!document.hidden);
+  useEffect(() => {
+    const handler = () => { visible.current = !document.hidden; };
+    document.addEventListener("visibilitychange", handler);
+    return () => document.removeEventListener("visibilitychange", handler);
+  }, []);
+  return visible;
+};
+
 // ── 1. Hero: live system-monitoring area chart (3 overlapping series) ─────────
 export const HeroChart = () => {
   const N = 40;
@@ -51,9 +62,11 @@ export const HeroChart = () => {
     return a.map((v, i) => ({ i, a: v, b: b[i], c: c[i] }));
   });
   const vRef = useRef({ a: 0, b: 0, c: 0, phase: Math.random() * Math.PI * 2 });
+  const visible = usePageVisible();
 
   useEffect(() => {
     const id = setInterval(() => {
+      if (!visible.current) return;
       setData((prev) => {
         const r = vRef.current;
         r.phase += 0.08;
@@ -142,6 +155,7 @@ export const JourneyChart = () => {
   const [inView, setInView] = useState(false);
   const containerRef = useRef(null);
   const vRef = useRef({ vels: JOURNEY_YEARS.map(() => 0), phase: Math.random() * Math.PI * 2 });
+  const visible = usePageVisible();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -155,6 +169,7 @@ export const JourneyChart = () => {
   useEffect(() => {
     if (!inView) return;
     const id = setInterval(() => {
+      if (!visible.current) return;
       setData((prev) => {
         const r = vRef.current;
         r.phase += 0.05;
@@ -215,9 +230,11 @@ export const ImpactChart = () => {
   );
 
   const vRef = useRef({ users: 0, events: 0, phase: Math.random() * Math.PI * 2 });
+  const visible = usePageVisible();
 
   useEffect(() => {
     const id = setInterval(() => {
+      if (!visible.current) return;
       setData((prev) => {
         const r = vRef.current;
         r.phase += 0.065;
@@ -285,9 +302,11 @@ export const VenturesChart = () => {
   );
 
   const vRef = useRef({ product: 0, traction: 0, phase: Math.random() * Math.PI * 2 });
+  const visible = usePageVisible();
 
   useEffect(() => {
     const id = setInterval(() => {
+      if (!visible.current) return;
       setData((prev) => {
         const r = vRef.current;
         r.phase += 0.055;
