@@ -173,8 +173,12 @@ const Portfolio = () => {
               </button>
             ))}
             <button
-              onClick={() => setShowModal(true)}
-              className="px-6 py-2 rounded-full whitespace-nowrap bg-purple-600 text-white hover:bg-purple-700 transition-all flex items-center gap-2"
+              onClick={() => { setActiveTab("projects"); setShowModal(true); }}
+              className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 ${
+                activeTab === "projects"
+                  ? "bg-cyan-500 text-white"
+                  : "bg-white/5 text-slate-400 hover:bg-white/10 ring-2 ring-cyan-400/40 animate-pulse"
+              }`}
             >
               <Code2 size={18} />
               <span>Projects</span>
