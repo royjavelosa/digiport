@@ -157,8 +157,8 @@ const Portfolio = () => {
       </section>
 
       <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex gap-2 overflow-x-auto py-4 justify-center">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex gap-2 overflow-x-auto py-4 px-4 justify-center">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
@@ -177,7 +177,7 @@ const Portfolio = () => {
               className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 ${
                 activeTab === "projects"
                   ? "bg-cyan-500 text-white"
-                  : "bg-white/5 text-slate-400 hover:bg-white/10 ring-2 ring-cyan-400/40 animate-pulse"
+                  : "bg-white/5 text-slate-200 hover:bg-white/10 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
               }`}
             >
               <Code2 size={18} />
@@ -330,7 +330,7 @@ const Portfolio = () => {
         </div>
       )}
 
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         {activeTab === "journey" && (
           <div className="relative overflow-hidden">
             <JourneyChart />
@@ -596,10 +596,12 @@ const Portfolio = () => {
               onMouseEnter={() => setFocusedEdu("mit")}
               onMouseLeave={() => setFocusedEdu(null)}
             >
-              <div className="flex-1 flex items-start gap-6">
-                <BookOpen className="text-red-400 flex-shrink-0 mt-1" size={48} />
-                <div>
-                  <h3 className="text-3xl font-bold mb-1">MIT</h3>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-1">
+                  <BookOpen className="text-red-400 flex-shrink-0" size={28} />
+                  <h3 className="text-3xl font-bold">MIT</h3>
+                </div>
+                <div className="pl-0">
                   <p className="text-cyan-400 mb-1">Data Science &amp; ML</p>
                   <p className="text-slate-400 text-sm mb-3">Jul–Nov 2024</p>
                   <p className="text-slate-300">IDSS program covering ML, PCA, clustering</p>
@@ -621,10 +623,12 @@ const Portfolio = () => {
               onMouseEnter={() => setFocusedEdu("centro")}
               onMouseLeave={() => setFocusedEdu(null)}
             >
-              <div className="flex-1 flex items-start gap-6">
-                <GraduationCap className="text-blue-400 flex-shrink-0 mt-1" size={48} />
-                <div>
-                  <h3 className="text-3xl font-bold mb-1">Centro Escolar</h3>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-1">
+                  <GraduationCap className="text-blue-400 flex-shrink-0" size={28} />
+                  <h3 className="text-3xl font-bold">Centro Escolar</h3>
+                </div>
+                <div className="pl-0">
                   <p className="text-cyan-400 mb-1">BS Computer Science</p>
                   <p className="text-slate-400 text-sm mb-3">Graduated 2007</p>
                   <p className="text-slate-300">Software engineering foundation</p>
