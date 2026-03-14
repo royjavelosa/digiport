@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   HeroChart,
   JourneyChart,
@@ -26,6 +26,13 @@ const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("journey");
   const [showModal, setShowModal] = useState(false);
   const [focusedEdu, setFocusedEdu] = useState(null);
+  const navRef = useRef(null);
+
+  const handleTabClick = (tab, openModal = false) => {
+    setActiveTab(tab);
+    if (openModal) setShowModal(true);
+    navRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const EDU_RADAR = {
     mit: {
@@ -156,13 +163,22 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
+      <div ref={navRef} className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-6xl mx-auto">
-          <div className="flex gap-2 overflow-x-auto py-4 px-4 justify-center">
+          <div className="flex items-center gap-3 py-4 px-4">
+            {/* Identity anchor */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
+              <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
+            </div>
+            {/* Divider */}
+            <div className="hidden md:block w-px h-5 bg-white/20 flex-shrink-0" />
+            {/* Tabs */}
+          <div className="flex gap-2 overflow-x-auto flex-1 justify-end">
             {["journey", "impact", "ventures", "education"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => handleTabClick(tab)}
                 className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize ${
                   activeTab === tab
                     ? "bg-cyan-500 text-white"
@@ -173,7 +189,7 @@ const Portfolio = () => {
               </button>
             ))}
             <button
-              onClick={() => { setActiveTab("projects"); setShowModal(true); }}
+              onClick={() => handleTabClick("projects", true)}
               className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 ${
                 activeTab === "projects"
                   ? "bg-cyan-500 text-white"
@@ -183,6 +199,7 @@ const Portfolio = () => {
               <Code2 size={18} />
               <span>Projects</span>
             </button>
+          </div>
           </div>
         </div>
       </div>
