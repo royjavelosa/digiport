@@ -43,7 +43,7 @@ const initSeries = (n, min, max) => {
 
 // ── 1. Hero: live system-monitoring area chart (3 overlapping series) ─────────
 export const HeroChart = () => {
-  const N = 60;
+  const N = 40;
   const [data, setData] = useState(() => {
     const a = initSeries(N, 50, 95);
     const b = initSeries(N, 25, 70);
@@ -60,9 +60,9 @@ export const HeroChart = () => {
         let next = prev;
         for (let s = 0; s < 4; s++) {
           const last = next[next.length - 1];
-          const [na, va] = mw(last.a, r.a, 30, 98, Math.sin(r.phase) * 0.8, 4);
-          const [nb, vb] = mw(last.b, r.b, 15, 78, Math.sin(r.phase + 2.1) * 0.8, 4);
-          const [nc, vc] = mw(last.c, r.c, 20, 88, Math.sin(r.phase + 4.2) * 0.8, 4);
+          const [na, va] = mw(last.a, r.a, 50, 95, Math.sin(r.phase) * 0.4, 1);
+          const [nb, vb] = mw(last.b, r.b, 25, 70, Math.sin(r.phase + 2.1) * 0.4, 1);
+          const [nc, vc] = mw(last.c, r.c, 35, 80, Math.sin(r.phase + 4.2) * 0.4, 1);
           r.a = va; r.b = vb; r.c = vc;
           next = [...next.slice(1), { i: last.i + 1, a: na, b: nb, c: nc }];
         }
@@ -139,9 +139,21 @@ export const JourneyChart = () => {
   const [data, setData] = useState(() =>
     JOURNEY_YEARS.map((y, i) => ({ y, v: JOURNEY_BASE[i] }))
   );
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef(null);
   const vRef = useRef({ vels: JOURNEY_YEARS.map(() => 0), phase: Math.random() * Math.PI * 2 });
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.1 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
     const id = setInterval(() => {
       setData((prev) => {
         const r = vRef.current;
@@ -155,13 +167,15 @@ export const JourneyChart = () => {
       });
     }, 1600);
     return () => clearInterval(id);
-  }, []);
+  }, [inView]);
 
   return (
     <div
+      ref={containerRef}
       className="absolute inset-0 pointer-events-none"
       style={{ opacity: 0.13 }}
     >
+      {inView && (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
@@ -184,6 +198,7 @@ export const JourneyChart = () => {
           />
         </BarChart>
       </ResponsiveContainer>
+      )}
     </div>
   );
 };
