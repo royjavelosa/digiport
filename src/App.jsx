@@ -41,7 +41,10 @@ const Portfolio = () => {
   const handleTabClick = (tab, openModal = false) => {
     setActiveTab(tab);
     if (openModal) setShowModal(true);
-    navRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (navRef.current) {
+      const navTop = navRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: navTop, behavior: "smooth" });
+    }
   };
 
   const EDU_RADAR = {
