@@ -301,6 +301,26 @@ export const VenturesChart = () => {
   );
 };
 
+// ── 5b. Inline radar — accepts data + color, renders in flow (not absolute) ───
+export const InlineRadarChart = ({ data, color = "#22d3ee" }) => (
+  <ResponsiveContainer width="100%" height="100%">
+    <RadarChart data={data} margin={{ top: 10, right: 35, left: 35, bottom: 10 }}>
+      <PolarGrid stroke={color} strokeOpacity={0.3} />
+      <PolarAngleAxis dataKey="subject" tick={{ fill: "#94a3b8", fontSize: 10 }} />
+      <Radar
+        dataKey="v"
+        stroke={color}
+        strokeWidth={2}
+        fill={color}
+        fillOpacity={0.2}
+        isAnimationActive
+        animationDuration={700}
+        animationBegin={0}
+      />
+    </RadarChart>
+  </ResponsiveContainer>
+);
+
 // ── 5. Education: radar / skills spider chart ─────────────────────────────────
 const RADAR_SUBJECTS = ["ML & AI", "Systems", "Leadership", "Data Eng", "Cloud", "Product"];
 const RADAR_BASE = [88, 92, 95, 85, 82, 80];

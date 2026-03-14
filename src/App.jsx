@@ -4,7 +4,7 @@ import {
   JourneyChart,
   ImpactChart,
   VenturesChart,
-  EducationChart,
+  InlineRadarChart,
 } from "./BackgroundCharts";
 import {
   Mail,
@@ -25,6 +25,43 @@ import {
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("journey");
   const [showModal, setShowModal] = useState(false);
+  const [focusedEdu, setFocusedEdu] = useState(null);
+
+  const EDU_RADAR = {
+    mit: {
+      color: "#f87171",
+      data: [
+        { subject: "ML & AI", v: 92 },
+        { subject: "Data Eng", v: 85 },
+        { subject: "Statistics", v: 88 },
+        { subject: "Python", v: 90 },
+        { subject: "Research", v: 80 },
+        { subject: "Cloud", v: 78 },
+      ],
+    },
+    centro: {
+      color: "#60a5fa",
+      data: [
+        { subject: "Algorithms", v: 90 },
+        { subject: "Systems", v: 88 },
+        { subject: "OOP", v: 92 },
+        { subject: "Databases", v: 85 },
+        { subject: "Soft Eng", v: 87 },
+        { subject: "Math", v: 82 },
+      ],
+    },
+    certs: {
+      color: "#22d3ee",
+      data: [
+        { subject: "Agile", v: 95 },
+        { subject: "Product", v: 88 },
+        { subject: "Leadership", v: 92 },
+        { subject: "Delivery", v: 90 },
+        { subject: "Strategy", v: 85 },
+        { subject: "Coaching", v: 87 },
+      ],
+    },
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -544,57 +581,94 @@ const Portfolio = () => {
         )}
 
         {activeTab === "education" && (
-          <div className="relative overflow-hidden">
-            <EducationChart />
-            <div className="relative z-10 space-y-8">
+          <div className="space-y-6">
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Education
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <BookOpen className="text-red-400 mb-6" size={48} />
-                <h3 className="text-3xl font-bold mb-2">MIT</h3>
-                <p className="text-cyan-400 mb-2">Data Science & ML</p>
-                <p className="text-slate-400 mb-4">Jul-Nov 2024</p>
-                <p className="text-slate-300">
-                  IDSS program covering ML, PCA, clustering
-                </p>
-              </div>
 
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <GraduationCap className="text-blue-400 mb-6" size={48} />
-                <h3 className="text-3xl font-bold mb-2">Centro Escolar</h3>
-                <p className="text-cyan-400 mb-2">BS Computer Science</p>
-                <p className="text-slate-400 mb-4">Graduated 2007</p>
-                <p className="text-slate-300">
-                  Software engineering foundation
-                </p>
+            {/* MIT */}
+            <div
+              className="flex items-center gap-0 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-red-400/40 transition-all cursor-default"
+              onMouseEnter={() => setFocusedEdu("mit")}
+              onMouseLeave={() => setFocusedEdu(null)}
+            >
+              <div className="flex-1 flex items-start gap-6">
+                <BookOpen className="text-red-400 flex-shrink-0 mt-1" size={48} />
+                <div>
+                  <h3 className="text-3xl font-bold mb-1">MIT</h3>
+                  <p className="text-cyan-400 mb-1">Data Science &amp; ML</p>
+                  <p className="text-slate-400 text-sm mb-3">Jul–Nov 2024</p>
+                  <p className="text-slate-300">IDSS program covering ML, PCA, clustering</p>
+                </div>
+              </div>
+              <div
+                className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
+                style={{ width: focusedEdu === "mit" ? 220 : 0, height: 180, opacity: focusedEdu === "mit" ? 1 : 0 }}
+              >
+                {focusedEdu === "mit" && (
+                  <InlineRadarChart key="mit" data={EDU_RADAR.mit.data} color={EDU_RADAR.mit.color} />
+                )}
               </div>
             </div>
 
-            <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-              <h3 className="text-2xl font-bold mb-6">Certifications</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex gap-3">
-                  <Award className="text-cyan-400 mt-1" size={20} />
-                  <div>
-                    <p className="text-white font-semibold">
-                      Professional Scrum Master I
-                    </p>
-                    <p className="text-slate-400 text-sm">Scrum.org</p>
-                  </div>
+            {/* Centro Escolar */}
+            <div
+              className="flex items-center gap-0 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-400/40 transition-all cursor-default"
+              onMouseEnter={() => setFocusedEdu("centro")}
+              onMouseLeave={() => setFocusedEdu(null)}
+            >
+              <div className="flex-1 flex items-start gap-6">
+                <GraduationCap className="text-blue-400 flex-shrink-0 mt-1" size={48} />
+                <div>
+                  <h3 className="text-3xl font-bold mb-1">Centro Escolar</h3>
+                  <p className="text-cyan-400 mb-1">BS Computer Science</p>
+                  <p className="text-slate-400 text-sm mb-3">Graduated 2007</p>
+                  <p className="text-slate-300">Software engineering foundation</p>
                 </div>
-                <div className="flex gap-3">
-                  <Award className="text-cyan-400 mt-1" size={20} />
-                  <div>
-                    <p className="text-white font-semibold">
-                      Google PM Professional
-                    </p>
-                    <p className="text-slate-400 text-sm">Coursera</p>
+              </div>
+              <div
+                className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
+                style={{ width: focusedEdu === "centro" ? 220 : 0, height: 180, opacity: focusedEdu === "centro" ? 1 : 0 }}
+              >
+                {focusedEdu === "centro" && (
+                  <InlineRadarChart key="centro" data={EDU_RADAR.centro.data} color={EDU_RADAR.centro.color} />
+                )}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div
+              className="flex items-center gap-0 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-400/40 transition-all cursor-default"
+              onMouseEnter={() => setFocusedEdu("certs")}
+              onMouseLeave={() => setFocusedEdu(null)}
+            >
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold mb-6">Certifications</h3>
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <Award className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                    <div>
+                      <p className="text-white font-semibold">Professional Scrum Master I</p>
+                      <p className="text-slate-400 text-sm">Scrum.org</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Award className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                    <div>
+                      <p className="text-white font-semibold">Google PM Professional</p>
+                      <p className="text-slate-400 text-sm">Coursera</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              <div
+                className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
+                style={{ width: focusedEdu === "certs" ? 220 : 0, height: 180, opacity: focusedEdu === "certs" ? 1 : 0 }}
+              >
+                {focusedEdu === "certs" && (
+                  <InlineRadarChart key="certs" data={EDU_RADAR.certs.data} color={EDU_RADAR.certs.color} />
+                )}
+              </div>
             </div>
           </div>
         )}
