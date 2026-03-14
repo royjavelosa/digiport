@@ -330,7 +330,7 @@ const Portfolio = () => {
         </div>
       )}
 
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
+      <div className="max-w-6xl mx-auto px-3 md:px-6 pt-16 pb-20">
         {activeTab === "journey" && (
           <div className="relative overflow-hidden">
             <JourneyChart />
@@ -341,14 +341,14 @@ const Portfolio = () => {
 
             <div className="relative">
               {/* Vertical gradient line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
+              <div className="absolute left-3 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
 
               {/* Powin Energy */}
-              <div className="relative flex gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+              <div className="relative flex gap-3 md:gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-cyan-500 rounded-2xl">
                       <Zap size={32} className="text-white" />
@@ -381,11 +381,11 @@ const Portfolio = () => {
               </div>
 
               {/* Amdocs — Engineering Manager */}
-              <div className="relative flex gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+              <div className="relative flex gap-3 md:gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-blue-500 rounded-2xl">
                       <Globe size={32} className="text-white" />
@@ -414,11 +414,11 @@ const Portfolio = () => {
               </div>
 
               {/* Amdocs — Team Lead R&D */}
-              <div className="relative flex gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+              <div className="relative flex gap-3 md:gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-purple-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-purple-500 rounded-2xl">
                       <Users size={32} className="text-white" />
@@ -447,11 +447,11 @@ const Portfolio = () => {
               </div>
 
               {/* PLDT */}
-              <div className="relative flex gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
+              <div className="relative flex gap-3 md:gap-8 pb-12">
+                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-pink-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-pink-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-pink-500 rounded-2xl">
                       <Code2 size={32} className="text-white" />
