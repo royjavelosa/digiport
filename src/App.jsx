@@ -386,7 +386,7 @@ const Portfolio = () => {
                 <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-cyan-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-cyan-500 rounded-2xl flex items-center justify-center">
                       <PowinIcon size={32} color="white" />
@@ -423,7 +423,7 @@ const Portfolio = () => {
                 <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-blue-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-blue-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-blue-500 rounded-2xl flex items-center justify-center">
                       <AmdocsIcon size={32} color="white" />
@@ -456,7 +456,7 @@ const Portfolio = () => {
                 <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-purple-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-purple-500 rounded-2xl flex items-center justify-center">
                       <AmdocsIcon size={32} color="white" />
@@ -489,7 +489,7 @@ const Portfolio = () => {
                 <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
                   <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
                 </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm hover:border-pink-500/50 transition-colors">
+                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-pink-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="p-4 bg-pink-500 rounded-2xl flex items-center justify-center">
                       <PLDTIcon size={32} color="white" />
