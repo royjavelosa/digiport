@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import {
   AreaChart,
   Area,
@@ -255,6 +255,7 @@ const NET_EDGES = [
 
 export const JourneyChart = () => {
   const [inView, setInView] = useState(false);
+  const [vbHeight, setVbHeight] = useState(1400);
   const containerRef = useRef(null);
   const parallaxRef = useRef(null);
   const svgRef = useRef(null);
@@ -269,6 +270,24 @@ export const JourneyChart = () => {
     );
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  // Measure synchronously before first paint so vbHeight is correct on the initial render
+  useLayoutEffect(() => {
+    if (!parallaxRef.current) return;
+    const { width, height } = parallaxRef.current.getBoundingClientRect();
+    if (width > 0) setVbHeight(Math.round(height * 800 / width));
+  }, []);
+
+  // Then watch for resize (orientation change, window resize)
+  useEffect(() => {
+    if (!parallaxRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      if (width > 0) setVbHeight(Math.round(height * 800 / width));
+    });
+    ro.observe(parallaxRef.current);
+    return () => ro.disconnect();
   }, []);
 
   // Parallax: parallaxRef div always in DOM so ref is valid from mount
@@ -313,7 +332,7 @@ export const JourneyChart = () => {
       {inView && (
         <svg
           ref={svgRef}
-          viewBox="0 0 800 1400"
+          viewBox={`0 0 800 ${vbHeight}`}
           preserveAspectRatio="none"
           width="100%"
           height="100%"
