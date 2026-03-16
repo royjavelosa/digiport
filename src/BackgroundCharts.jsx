@@ -308,13 +308,13 @@ export const JourneyChart = () => {
     >
       <div
         ref={parallaxRef}
-        style={{ width: "100%", height: "170%", marginTop: "-35%", willChange: "transform" }}
+        style={{ position: "absolute", inset: "-25% 0", willChange: "transform" }}
       >
       {inView && (
         <svg
           ref={svgRef}
           viewBox="0 0 800 1400"
-          preserveAspectRatio="xMidYMin meet"
+          preserveAspectRatio="xMidYMid slice"
           width="100%"
           height="100%"
         >
