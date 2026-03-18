@@ -203,7 +203,7 @@ const Portfolio = () => {
                 className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize flex-shrink-0 ${
                   activeTab === tab
                     ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
-                    : "bg-white/5 border border-white/0 text-slate-400 hover:border-white/20 hover:text-slate-200"
+                    : "bg-white/5 border border-white/0 text-slate-400 hover:bg-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-300 hover:shadow-[0_0_8px_1px_rgba(34,211,238,0.2)]"
                 }`}
               >
                 {tab}
