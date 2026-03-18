@@ -136,7 +136,7 @@ const Portfolio = () => {
             </a>
             <button
               onClick={() => setShowModal(true)}
-              className="flex items-center gap-2 px-8 py-4 bg-purple-600 rounded-full hover:bg-purple-700 transition-all"
+              className="flex items-center gap-2 px-8 py-4 bg-white/5 border border-purple-500/40 rounded-full text-purple-300 hover:border-purple-400 hover:text-white hover:shadow-[0_0_12px_2px_rgba(168,85,247,0.3)] transition-all"
             >
               <Code2 size={20} />
               <span>View Projects</span>
@@ -144,7 +144,7 @@ const Portfolio = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-cyan-500/50 transition-all">
+            <div className="p-5 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-cyan-500/50 transition-all">
               <div className="text-5xl md:text-6xl font-bold text-cyan-400 mb-3">
                 15+
               </div>
@@ -152,7 +152,7 @@ const Portfolio = () => {
                 Years Experience
               </div>
             </div>
-            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-blue-500/50 transition-all">
+            <div className="p-5 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-blue-500/50 transition-all">
               <div className="text-5xl md:text-6xl font-bold text-blue-400 mb-3">
                 65M+
               </div>
@@ -160,7 +160,7 @@ const Portfolio = () => {
                 Users Impacted
               </div>
             </div>
-            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all">
+            <div className="p-5 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all">
               <div className="text-5xl md:text-6xl font-bold text-purple-400 mb-3">
                 27
               </div>
@@ -168,7 +168,7 @@ const Portfolio = () => {
                 Team Size Led
               </div>
             </div>
-            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-pink-500/50 transition-all">
+            <div className="p-5 md:p-10 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-pink-500/50 transition-all">
               <div className="text-5xl md:text-6xl font-bold text-pink-400 mb-3">
                 5+
               </div>
@@ -202,8 +202,8 @@ const Portfolio = () => {
                 onClick={() => handleTabClick(tab)}
                 className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize flex-shrink-0 ${
                   activeTab === tab
-                    ? "bg-cyan-500 text-white"
-                    : "bg-white/5 text-slate-400 hover:bg-white/10"
+                    ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
+                    : "bg-white/5 border border-white/0 text-slate-400 hover:border-white/20 hover:text-slate-200"
                 }`}
               >
                 {tab}
@@ -213,8 +213,8 @@ const Portfolio = () => {
               onClick={() => handleTabClick("projects", true)}
               className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 flex-shrink-0 ${
                 activeTab === "projects"
-                  ? "bg-cyan-500 text-white"
-                  : "bg-white/5 text-slate-200 hover:bg-white/10 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
+                  ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
+                  : "bg-white/5 border border-white/0 text-slate-200 hover:border-white/20 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
               }`}
             >
               <Code2 size={18} />
@@ -240,7 +240,7 @@ const Portfolio = () => {
               </h2>
               <button
                 onClick={() => setShowModal(false)}
-                className="p-2 hover:bg-white/10 rounded-full"
+                className="p-2 rounded-full border border-white/0 text-slate-400 hover:border-white/20 hover:text-white hover:bg-white/5 transition-all"
               >
                 <X size={24} className="text-slate-400" />
               </button>
@@ -729,7 +729,7 @@ const Portfolio = () => {
         <div className="flex gap-4 justify-center">
           <a
             href="mailto:joseroyjavelosa@gmail.com"
-            className="px-8 py-4 bg-cyan-500 rounded-full hover:bg-cyan-600 transition-all"
+            className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full hover:shadow-[0_0_20px_4px_rgba(34,211,238,0.3)] hover:scale-[1.02] transition-all"
           >
             Email Me
           </a>
