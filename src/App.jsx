@@ -231,7 +231,7 @@ const Portfolio = () => {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-slate-900 rounded-3xl"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-slate-900 rounded-3xl modal-scroll"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-slate-900 border-b border-white/10 p-6 flex items-center justify-between">
