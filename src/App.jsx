@@ -326,6 +326,45 @@ const Portfolio = () => {
               </a>
 
               <a
+                href="http://gridkinetiq-frontend.s3-website-us-east-1.amazonaws.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="p-6 border border-white/10 rounded-2xl hover:border-green-500 transition-all">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-green-600 rounded-xl">
+                        <Zap size={24} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">
+                          GridKinetiq
+                        </h3>
+                        <p className="text-green-400 text-sm">
+                          BESS Fleet Management & Command Dispatch
+                        </p>
+                      </div>
+                    </div>
+                    <ExternalLink size={20} className="text-slate-400" />
+                  </div>
+                  <p className="text-slate-300 mb-4">
+                    Battery Energy Storage System platform with real-time telemetry, charge/discharge command dispatch, site fleet management, and a built-in simulator for unpredictable production-like data.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["React", "Spring Boot", "MongoDB Atlas", "AWS EC2/S3"].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-xs text-green-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+
+              <a
                 href="https://www.mygreatlearning.com/eportfolio/jose-roy-javelosa"
                 target="_blank"
                 rel="noopener noreferrer"
