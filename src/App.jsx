@@ -441,15 +441,15 @@ const Portfolio = () => {
                       <ul className="space-y-2 text-slate-300">
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Led Command Center UI for Super Bowl LVIII
+                          Led Command Center UI delivery for Super Bowl LVIII and Waratah operations
                         </li>
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Managed Waratah Super Battery operations
+                          Delivered features enabling Waratah commissioning acceptance
                         </li>
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Built AWS serverless tools
+                          Built AWS serverless tools for hardware validation and field operations support
                         </li>
                       </ul>
                     </div>
