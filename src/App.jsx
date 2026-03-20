@@ -515,11 +515,15 @@ const Portfolio = () => {
                       <ul className="space-y-2 text-slate-300">
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-purple-400 mt-0.5" />
-                          Led 3 Scrum teams (27 engineers)
+                          Built, trained, and led 3 Scrum teams (27 engineers) delivering end-to-end R&D platform features across UI and backend
                         </li>
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-purple-400 mt-0.5" />
-                          Global production support
+                          Owned end-to-end delivery of key features through Agile development and production rollout
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
+                          Led customer-facing production support, coordinating fixes across distributed teams and time zones
                         </li>
                       </ul>
                     </div>
@@ -542,17 +546,21 @@ const Portfolio = () => {
                         <div>
                           <span className="text-slate-400 text-sm">2008–2018</span>
                           <h3 className="text-2xl font-bold text-white">PLDT</h3>
-                          <p className="text-pink-400">Lead Software Engineer</p>
+                          <p className="text-pink-400">Software Engineer</p>
                         </div>
                       </div>
                       <ul className="space-y-2 text-slate-300">
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-pink-400 mt-0.5" />
-                          Built first in-house billing system
+                          Contributed to development of PLDT's core telecom billing platform
                         </li>
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-pink-400 mt-0.5" />
-                          Led BI system development
+                          Led BI system development for customer and revenue analytics
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
+                          Delivered backend features across Java-based enterprise systems
                         </li>
                       </ul>
                     </div>
