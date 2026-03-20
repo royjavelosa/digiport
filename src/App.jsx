@@ -478,11 +478,15 @@ const Portfolio = () => {
                       <ul className="space-y-2 text-slate-300">
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-blue-400 mt-0.5" />
-                          Led project for 65M subscribers
+                          Led platform delivery for a 65M-subscriber telecom system
                         </li>
                         <li className="flex gap-2">
                           <ChevronRight size={20} className="text-blue-400 mt-0.5" />
-                          Delivered eSIM and MNP features
+                          Delivered modern telecom features including eSIM, Mobile Number Portability, and Apple device integration
+                        </li>
+                        <li className="flex gap-2">
+                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
+                          Led global incident response and cross-team delivery
                         </li>
                       </ul>
                     </div>
