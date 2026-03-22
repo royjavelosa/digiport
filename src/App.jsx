@@ -46,7 +46,8 @@ const Portfolio = () => {
     setActiveTab(tab);
     if (openModal) setShowModal(true);
     if (navRef.current) {
-      const navTop = navRef.current.getBoundingClientRect().top + window.scrollY;
+      const navTop =
+        navRef.current.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: navTop, behavior: "smooth" });
     }
   };
@@ -180,47 +181,60 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <div ref={navRef} className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
+      <div
+        ref={navRef}
+        className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 py-4 px-4">
             {/* Identity anchor — fades in when nav is pinned */}
-            <div className={`flex items-center gap-2 flex-shrink-0 transition-all duration-500 ${
-              isNavSticky ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3 pointer-events-none"
-            }`}>
-              <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">RJ</div>
-              <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">Jose Roy Javelosa</span>
-            </div>
-            {/* Divider */}
-            <div className={`hidden md:block w-px h-5 bg-white/20 flex-shrink-0 transition-all duration-500 ${
-              isNavSticky ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`} />
-            {/* Tabs */}
-          <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 pr-4 md:justify-center">
-            {["journey", "impact", "ventures", "education"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTabClick(tab)}
-                className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize flex-shrink-0 ${
-                  activeTab === tab
-                    ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
-                    : "bg-white/5 border border-white/0 text-slate-400 hover:bg-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-300 hover:shadow-[0_0_8px_1px_rgba(34,211,238,0.2)]"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-            <button
-              onClick={() => handleTabClick("projects", true)}
-              className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 flex-shrink-0 ${
-                activeTab === "projects"
-                  ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
-                  : "bg-white/5 border border-white/0 text-slate-200 hover:border-white/20 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
+            <div
+              className={`flex items-center gap-2 flex-shrink-0 transition-all duration-500 ${
+                isNavSticky
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-3 pointer-events-none"
               }`}
             >
-              <Code2 size={18} />
-              <span>Projects</span>
-            </button>
-          </div>
+              <div className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold text-white">
+                RJ
+              </div>
+              <span className="hidden md:block text-sm font-semibold text-slate-200 whitespace-nowrap">
+                Jose Roy Javelosa
+              </span>
+            </div>
+            {/* Divider */}
+            <div
+              className={`hidden md:block w-px h-5 bg-white/20 flex-shrink-0 transition-all duration-500 ${
+                isNavSticky ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
+            {/* Tabs */}
+            <div className="flex flex-1 gap-2 overflow-x-auto scrollbar-hide py-1 pr-4 md:justify-center">
+              {["journey", "impact", "ventures", "education"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleTabClick(tab)}
+                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-all capitalize flex-shrink-0 ${
+                    activeTab === tab
+                      ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
+                      : "bg-white/5 border border-white/0 text-slate-400 hover:bg-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-300 hover:shadow-[0_0_8px_1px_rgba(34,211,238,0.2)]"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+              <button
+                onClick={() => handleTabClick("projects", true)}
+                className={`relative px-6 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === "projects"
+                    ? "bg-cyan-500/15 border border-cyan-500/80 text-cyan-300 shadow-[0_0_10px_1px_rgba(34,211,238,0.25)]"
+                    : "bg-white/5 border border-white/0 text-slate-200 hover:border-white/20 ring-2 ring-cyan-400/80 shadow-[0_0_12px_2px_rgba(34,211,238,0.4)] animate-pulse"
+                }`}
+              >
+                <Code2 size={18} />
+                <span>Projects</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -349,10 +363,18 @@ const Portfolio = () => {
                     <ExternalLink size={20} className="text-slate-400" />
                   </div>
                   <p className="text-slate-300 mb-4">
-                    Battery Energy Storage System platform with real-time telemetry, charge/discharge command dispatch, site fleet management, and a built-in simulator for unpredictable production-like data.
+                    Battery Energy Storage System platform with real-time
+                    telemetry, charge/discharge command dispatch, site fleet
+                    management, and a built-in simulator for unpredictable
+                    production-like data.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["React", "Spring Boot", "MongoDB Atlas", "AWS EC2/S3"].map((tech) => (
+                    {[
+                      "React",
+                      "Spring Boot",
+                      "MongoDB Atlas",
+                      "AWS EC2/S3",
+                    ].map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-xs text-green-300"
@@ -412,162 +434,231 @@ const Portfolio = () => {
           <div className="relative overflow-hidden">
             <JourneyChart />
             <div className="relative z-10 space-y-8">
-            <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Career Journey
-            </h2>
+              <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Career Journey
+              </h2>
 
-            <div className="relative">
-              {/* Vertical gradient line */}
-              <div className="absolute left-3 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
+              <div className="relative">
+                {/* Vertical gradient line */}
+                <div className="absolute left-3 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
 
-              {/* Powin Energy */}
-              <div className="relative flex gap-3 md:gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
-                </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-500/50 transition-colors">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-cyan-500 rounded-2xl flex items-center justify-center">
-                      <PowinIcon size={32} color="white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <span className="text-slate-400 text-sm">2023–2025</span>
-                          <h3 className="text-2xl font-bold text-white">Powin Energy</h3>
-                          <p className="text-cyan-400">Software Engineering Manager</p>
-                        </div>
+                {/* Powin Energy */}
+                <div className="relative flex gap-3 md:gap-8 pb-12">
+                  <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
+                    <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
+                  </div>
+                  <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-500/50 transition-colors">
+                    <div className="flex items-start gap-6">
+                      <div className="p-4 bg-cyan-500 rounded-2xl flex items-center justify-center">
+                        <PowinIcon size={32} color="white" />
                       </div>
-                      <ul className="space-y-2 text-slate-300">
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Led Command Center UI delivery for Super Bowl LVIII and Waratah operations
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Delivered features enabling Waratah commissioning acceptance
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-cyan-400 mt-0.5" />
-                          Built AWS serverless tools for hardware validation and field operations support
-                        </li>
-                      </ul>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <span className="text-slate-400 text-sm">
+                              2023–2025
+                            </span>
+                            <h3 className="text-2xl font-bold text-white">
+                              Powin Energy
+                            </h3>
+                            <p className="text-cyan-400">
+                              Software Engineering Manager
+                            </p>
+                          </div>
+                        </div>
+                        <ul className="space-y-2 text-slate-300">
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-cyan-400 mt-0.5"
+                            />
+                            Led Command Center UI delivery for Super Bowl LVIII
+                            and Waratah operations
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-cyan-400 mt-0.5"
+                            />
+                            Delivered features enabling Waratah commissioning
+                            acceptance
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-cyan-400 mt-0.5"
+                            />
+                            Built AWS serverless tools for hardware validation
+                            and field operations support
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Amdocs — Engineering Manager */}
+                <div className="relative flex gap-3 md:gap-8 pb-12">
+                  <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
+                    <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
+                  </div>
+                  <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-blue-500/50 transition-colors">
+                    <div className="flex items-start gap-6">
+                      <div className="p-4 bg-blue-500 rounded-2xl flex items-center justify-center">
+                        <AmdocsIcon size={32} color="white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <span className="text-slate-400 text-sm">
+                              2022–2023
+                            </span>
+                            <h3 className="text-2xl font-bold text-white">
+                              Amdocs
+                            </h3>
+                            <p className="text-blue-400">Engineering Manager</p>
+                          </div>
+                        </div>
+                        <ul className="space-y-2 text-slate-300">
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-blue-400 mt-0.5"
+                            />
+                            Led platform delivery for a 65M-subscriber telecom
+                            system
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-blue-400 mt-0.5"
+                            />
+                            Delivered modern telecom features including eSIM,
+                            Mobile Number Portability, and Apple device
+                            integration
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-blue-400 mt-0.5"
+                            />
+                            Led global incident response and cross-team delivery
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Amdocs — Team Lead R&D */}
+                <div className="relative flex gap-3 md:gap-8 pb-12">
+                  <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
+                    <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
+                  </div>
+                  <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-purple-500/50 transition-colors">
+                    <div className="flex items-start gap-6">
+                      <div className="p-4 bg-purple-500 rounded-2xl flex items-center justify-center">
+                        <AmdocsIcon size={32} color="white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <span className="text-slate-400 text-sm">
+                              2019–2021
+                            </span>
+                            <h3 className="text-2xl font-bold text-white">
+                              Amdocs
+                            </h3>
+                            <p className="text-purple-400">Team Lead R&amp;D</p>
+                          </div>
+                        </div>
+                        <ul className="space-y-2 text-slate-300">
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-purple-400 mt-0.5"
+                            />
+                            Built, trained, and led 3 Scrum teams (27 engineers)
+                            delivering end-to-end R&D platform features across
+                            UI and backend
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-purple-400 mt-0.5"
+                            />
+                            Owned end-to-end delivery of key features through
+                            Agile development and production rollout
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-purple-400 mt-0.5"
+                            />
+                            Led customer-facing production support, coordinating
+                            fixes across distributed teams and time zones
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PLDT */}
+                <div className="relative flex gap-3 md:gap-8 pb-12">
+                  <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
+                    <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
+                  </div>
+                  <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-pink-500/50 transition-colors">
+                    <div className="flex items-start gap-6">
+                      <div className="p-4 bg-pink-500 rounded-2xl flex items-center justify-center">
+                        <PLDTIcon size={32} color="white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <span className="text-slate-400 text-sm">
+                              2008–2018
+                            </span>
+                            <h3 className="text-2xl font-bold text-white">
+                              PLDT
+                            </h3>
+                            <p className="text-pink-400">Software Engineer</p>
+                          </div>
+                        </div>
+                        <ul className="space-y-2 text-slate-300">
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-pink-400 mt-0.5"
+                            />
+                            Built Business Intelligence systems used by billing,
+                            finance, and executive teams to monitor telecom
+                            usage, billing accuracy, and revenue performance
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-pink-400 mt-0.5"
+                            />
+                            Designed and developed Java enterprise applications,
+                            backend services, and APIs
+                          </li>
+                          <li className="flex gap-2">
+                            <ChevronRight
+                              size={20}
+                              className="text-pink-400 mt-0.5"
+                            />
+                            Built MVP enterprise and mobile applications and
+                            evaluated emerging technologies within an R&D
+                            initiative
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* Amdocs — Engineering Manager */}
-              <div className="relative flex gap-3 md:gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
-                </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-blue-500/50 transition-colors">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-blue-500 rounded-2xl flex items-center justify-center">
-                      <AmdocsIcon size={32} color="white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <span className="text-slate-400 text-sm">2022–2023</span>
-                          <h3 className="text-2xl font-bold text-white">Amdocs</h3>
-                          <p className="text-blue-400">Engineering Manager</p>
-                        </div>
-                      </div>
-                      <ul className="space-y-2 text-slate-300">
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
-                          Led platform delivery for a 65M-subscriber telecom system
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
-                          Delivered modern telecom features including eSIM, Mobile Number Portability, and Apple device integration
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-blue-400 mt-0.5" />
-                          Led global incident response and cross-team delivery
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Amdocs — Team Lead R&D */}
-              <div className="relative flex gap-3 md:gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
-                </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-purple-500/50 transition-colors">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-purple-500 rounded-2xl flex items-center justify-center">
-                      <AmdocsIcon size={32} color="white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <span className="text-slate-400 text-sm">2019–2021</span>
-                          <h3 className="text-2xl font-bold text-white">Amdocs</h3>
-                          <p className="text-purple-400">Team Lead R&amp;D</p>
-                        </div>
-                      </div>
-                      <ul className="space-y-2 text-slate-300">
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
-                          Built, trained, and led 3 Scrum teams (27 engineers) delivering end-to-end R&D platform features across UI and backend
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
-                          Owned end-to-end delivery of key features through Agile development and production rollout
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-purple-400 mt-0.5" />
-                          Led customer-facing production support, coordinating fixes across distributed teams and time zones
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* PLDT */}
-              <div className="relative flex gap-3 md:gap-8 pb-12">
-                <div className="relative z-10 flex-shrink-0 w-6 md:w-12 flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
-                </div>
-                <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-pink-500/50 transition-colors">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-pink-500 rounded-2xl flex items-center justify-center">
-                      <PLDTIcon size={32} color="white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <span className="text-slate-400 text-sm">2008–2018</span>
-                          <h3 className="text-2xl font-bold text-white">PLDT</h3>
-                          <p className="text-pink-400">Software Engineer</p>
-                        </div>
-                      </div>
-                      <ul className="space-y-2 text-slate-300">
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
-                          Contributed to development of PLDT's core telecom billing platform
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
-                          Led BI system development for customer and revenue analytics
-                        </li>
-                        <li className="flex gap-2">
-                          <ChevronRight size={20} className="text-pink-400 mt-0.5" />
-                          Delivered backend features across Java-based enterprise systems
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             </div>
           </div>
         )}
@@ -576,39 +667,41 @@ const Portfolio = () => {
           <div className="relative overflow-hidden">
             <ImpactChart />
             <div className="relative z-10 space-y-8">
-            <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Real-World Impact
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <Zap className="text-cyan-400 mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4">Super Bowl LVIII</h3>
-                <p className="text-slate-300">
-                  First Super Bowl powered by renewable energy
-                </p>
+              <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Real-World Impact
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <Zap className="text-cyan-400 mb-4" size={48} />
+                  <h3 className="text-2xl font-bold mb-4">Super Bowl LVIII</h3>
+                  <p className="text-slate-300">
+                    First Super Bowl powered by renewable energy
+                  </p>
+                </div>
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <Globe className="text-blue-400 mb-4" size={48} />
+                  <h3 className="text-2xl font-bold mb-4">Waratah Battery</h3>
+                  <p className="text-slate-300">
+                    One of world's largest batteries
+                  </p>
+                </div>
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <Users className="text-purple-400 mb-4" size={48} />
+                  <h3 className="text-2xl font-bold mb-4">65M Subscribers</h3>
+                  <p className="text-slate-300">
+                    Southeast Asia telecom platform
+                  </p>
+                </div>
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <Code2 className="text-pink-400 mb-4" size={48} />
+                  <h3 className="text-2xl font-bold mb-4">
+                    First Billing System
+                  </h3>
+                  <p className="text-slate-300">
+                    Philippines in-house platform
+                  </p>
+                </div>
               </div>
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <Globe className="text-blue-400 mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4">Waratah Battery</h3>
-                <p className="text-slate-300">
-                  One of world's largest batteries
-                </p>
-              </div>
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <Users className="text-purple-400 mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4">65M Subscribers</h3>
-                <p className="text-slate-300">
-                  Southeast Asia telecom platform
-                </p>
-              </div>
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <Code2 className="text-pink-400 mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4">
-                  First Billing System
-                </h3>
-                <p className="text-slate-300">Philippines in-house platform</p>
-              </div>
-            </div>
             </div>
           </div>
         )}
@@ -617,58 +710,60 @@ const Portfolio = () => {
           <div className="relative overflow-hidden">
             <VenturesChart />
             <div className="relative z-10 space-y-8">
-            <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Startup Ventures
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-center gap-4 mb-6">
-                  <Rocket className="text-cyan-400" size={40} />
-                  <div>
-                    <h3 className="text-3xl font-bold">Historya</h3>
-                    <p className="text-slate-400 text-sm">2015-2016</p>
+              <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Startup Ventures
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Rocket className="text-cyan-400" size={40} />
+                    <div>
+                      <h3 className="text-3xl font-bold">Historya</h3>
+                      <p className="text-slate-400 text-sm">2015-2016</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-300 mb-6">
+                    Cultural heritage tourism platform
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <Award size={20} className="text-cyan-400 mt-1" />
+                      <p className="text-white">Echelon Asia Top 100</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <Award size={20} className="text-blue-400 mt-1" />
+                      <p className="text-white">
+                        Global Social Venture Finalist
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-slate-300 mb-6">
-                  Cultural heritage tourism platform
-                </p>
-                <div className="space-y-3">
-                  <div className="flex gap-3">
-                    <Award size={20} className="text-cyan-400 mt-1" />
-                    <p className="text-white">Echelon Asia Top 100</p>
-                  </div>
-                  <div className="flex gap-3">
-                    <Award size={20} className="text-blue-400 mt-1" />
-                    <p className="text-white">Global Social Venture Finalist</p>
-                  </div>
-                </div>
-              </div>
 
-              <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                <div className="flex items-center gap-4 mb-6">
-                  <Rocket className="text-blue-400" size={40} />
-                  <div>
-                    <h3 className="text-3xl font-bold">GIO</h3>
-                    <p className="text-slate-400 text-sm">2015-2016</p>
+                <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Rocket className="text-blue-400" size={40} />
+                    <div>
+                      <h3 className="text-3xl font-bold">GIO</h3>
+                      <p className="text-slate-400 text-sm">2015-2016</p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-slate-300 mb-6">
-                  Employee monitoring platform
-                </p>
-                <div className="space-y-3">
-                  <div className="flex gap-3">
-                    <Award size={20} className="text-blue-400 mt-1" />
-                    <p className="text-white">
-                      IBM Cloud Competition 3rd Place
-                    </p>
-                  </div>
-                  <div className="flex gap-3">
-                    <Award size={20} className="text-purple-400 mt-1" />
-                    <p className="text-white">Ideaspace Top 24 Finalist</p>
+                  <p className="text-slate-300 mb-6">
+                    Employee monitoring platform
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <Award size={20} className="text-blue-400 mt-1" />
+                      <p className="text-white">
+                        IBM Cloud Competition 3rd Place
+                      </p>
+                    </div>
+                    <div className="flex gap-3">
+                      <Award size={20} className="text-purple-400 mt-1" />
+                      <p className="text-white">Ideaspace Top 24 Finalist</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         )}
@@ -693,15 +788,25 @@ const Portfolio = () => {
                 <div className="pl-0">
                   <p className="text-cyan-400 mb-1">Data Science &amp; ML</p>
                   <p className="text-slate-400 text-sm mb-3">Jul–Nov 2024</p>
-                  <p className="text-slate-300">IDSS program covering ML, PCA, clustering</p>
+                  <p className="text-slate-300">
+                    IDSS program covering ML, PCA, clustering
+                  </p>
                 </div>
               </div>
               <div
                 className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
-                style={{ width: focusedEdu === "mit" ? 220 : 0, height: 180, opacity: focusedEdu === "mit" ? 1 : 0 }}
+                style={{
+                  width: focusedEdu === "mit" ? 220 : 0,
+                  height: 180,
+                  opacity: focusedEdu === "mit" ? 1 : 0,
+                }}
               >
                 {focusedEdu === "mit" && (
-                  <InlineRadarChart key="mit" data={EDU_RADAR.mit.data} color={EDU_RADAR.mit.color} />
+                  <InlineRadarChart
+                    key="mit"
+                    data={EDU_RADAR.mit.data}
+                    color={EDU_RADAR.mit.color}
+                  />
                 )}
               </div>
             </div>
@@ -714,21 +819,34 @@ const Portfolio = () => {
             >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-1">
-                  <GraduationCap className="text-blue-400 flex-shrink-0" size={28} />
+                  <GraduationCap
+                    className="text-blue-400 flex-shrink-0"
+                    size={28}
+                  />
                   <h3 className="text-3xl font-bold">Centro Escolar</h3>
                 </div>
                 <div className="pl-0">
                   <p className="text-cyan-400 mb-1">BS Computer Science</p>
                   <p className="text-slate-400 text-sm mb-3">Graduated 2007</p>
-                  <p className="text-slate-300">Software engineering foundation</p>
+                  <p className="text-slate-300">
+                    Software engineering foundation
+                  </p>
                 </div>
               </div>
               <div
                 className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
-                style={{ width: focusedEdu === "centro" ? 220 : 0, height: 180, opacity: focusedEdu === "centro" ? 1 : 0 }}
+                style={{
+                  width: focusedEdu === "centro" ? 220 : 0,
+                  height: 180,
+                  opacity: focusedEdu === "centro" ? 1 : 0,
+                }}
               >
                 {focusedEdu === "centro" && (
-                  <InlineRadarChart key="centro" data={EDU_RADAR.centro.data} color={EDU_RADAR.centro.color} />
+                  <InlineRadarChart
+                    key="centro"
+                    data={EDU_RADAR.centro.data}
+                    color={EDU_RADAR.centro.color}
+                  />
                 )}
               </div>
             </div>
@@ -743,16 +861,26 @@ const Portfolio = () => {
                 <h3 className="text-2xl font-bold mb-6">Certifications</h3>
                 <div className="space-y-4">
                   <div className="flex gap-3">
-                    <Award className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                    <Award
+                      className="text-cyan-400 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <div>
-                      <p className="text-white font-semibold">Professional Scrum Master I</p>
+                      <p className="text-white font-semibold">
+                        Professional Scrum Master I
+                      </p>
                       <p className="text-slate-400 text-sm">Scrum.org</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Award className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                    <Award
+                      className="text-cyan-400 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <div>
-                      <p className="text-white font-semibold">Google PM Professional</p>
+                      <p className="text-white font-semibold">
+                        Google PM Professional
+                      </p>
                       <p className="text-slate-400 text-sm">Coursera</p>
                     </div>
                   </div>
@@ -760,18 +888,24 @@ const Portfolio = () => {
               </div>
               <div
                 className="flex-shrink-0 overflow-hidden transition-all duration-500 ease-out"
-                style={{ width: focusedEdu === "certs" ? 220 : 0, height: 180, opacity: focusedEdu === "certs" ? 1 : 0 }}
+                style={{
+                  width: focusedEdu === "certs" ? 220 : 0,
+                  height: 180,
+                  opacity: focusedEdu === "certs" ? 1 : 0,
+                }}
               >
                 {focusedEdu === "certs" && (
-                  <InlineRadarChart key="certs" data={EDU_RADAR.certs.data} color={EDU_RADAR.certs.color} />
+                  <InlineRadarChart
+                    key="certs"
+                    data={EDU_RADAR.certs.data}
+                    color={EDU_RADAR.certs.color}
+                  />
                 )}
               </div>
             </div>
           </div>
         )}
       </div>
-
-
 
       <footer className="py-20 px-3 md:px-6 text-center max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-6 pb-1 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
