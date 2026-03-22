@@ -579,8 +579,8 @@ const Portfolio = () => {
                               className="text-purple-400 mt-0.5"
                             />
                             Built, trained, and led 3 Scrum teams (27 engineers)
-                            delivering end-to-end R&D platform features across
-                            UI and backend
+                            delivering end-to-end R&D features for UI and
+                            backend systems
                           </li>
                           <li className="flex gap-2">
                             <ChevronRight
