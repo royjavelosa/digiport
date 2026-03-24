@@ -24,6 +24,7 @@ import {
   ExternalLink,
   X,
   Globe,
+  TrendingUp,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -262,6 +263,106 @@ const Portfolio = () => {
 
             <div className="p-6 space-y-6">
               <a
+                href="https://brandbubble-one.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="p-6 border border-white/10 rounded-2xl hover:border-orange-500 transition-all">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-orange-500 rounded-xl">
+                        <TrendingUp size={24} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">
+                          BrandBubble
+                        </h3>
+                        <p className="text-orange-400 text-sm">
+                          AI-Powered Sentiment Analysis
+                        </p>
+                      </div>
+                    </div>
+                    <ExternalLink size={20} className="text-slate-400" />
+                  </div>
+                  <p className="text-slate-300 mb-4">
+                    An enterprise sentiment platform tracking brands across
+                    social, video, and news. Uses a dual-LLM architecture:
+                    Gemini Flash for high-volume ingestion-time scoring and
+                    Claude Sonnet for on-demand narrative analysis. Powered by a
+                    Python/FastAPI pipeline with bi-daily cron ingestion and
+                    automated competitor benchmarking.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "React",
+                      "D3.js",
+                      "Python",
+                      "FastAPI",
+                      "Supabase",
+                      "PostgreSQL",
+                      "Gemini Flash",
+                      "Claude Sonnet",
+                    ].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-xs text-orange-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="http://gridkinetiq-frontend.s3-website-us-east-1.amazonaws.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="p-6 border border-white/10 rounded-2xl hover:border-green-500 transition-all">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-green-600 rounded-xl">
+                        <Zap size={24} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">
+                          GridKinetiq
+                        </h3>
+                        <p className="text-green-400 text-sm">
+                          BESS Fleet Management &amp; Command Dispatch
+                        </p>
+                      </div>
+                    </div>
+                    <ExternalLink size={20} className="text-slate-400" />
+                  </div>
+                  <p className="text-slate-300 mb-4">
+                    Battery Energy Storage System platform with real-time
+                    telemetry, charge/discharge command dispatch, site fleet
+                    management, and a built-in simulator for unpredictable
+                    production-like data.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "React",
+                      "Spring Boot",
+                      "MongoDB Atlas",
+                      "AWS EC2/S3",
+                    ].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-xs text-green-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+
+              <a
                 href="https://www.elesi.app"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -313,10 +414,10 @@ const Portfolio = () => {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-white">
-                          FP&A AI Demo
+                          FP&amp;A AI Demo
                         </h3>
                         <p className="text-purple-400 text-sm">
-                          Financial Planning & Analysis
+                          Financial Planning &amp; Analysis
                         </p>
                       </div>
                     </div>
@@ -331,53 +432,6 @@ const Portfolio = () => {
                       <span
                         key={tech}
                         className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-xs text-purple-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="http://gridkinetiq-frontend.s3-website-us-east-1.amazonaws.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div className="p-6 border border-white/10 rounded-2xl hover:border-green-500 transition-all">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-green-600 rounded-xl">
-                        <Zap size={24} className="text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">
-                          GridKinetiq
-                        </h3>
-                        <p className="text-green-400 text-sm">
-                          BESS Fleet Management & Command Dispatch
-                        </p>
-                      </div>
-                    </div>
-                    <ExternalLink size={20} className="text-slate-400" />
-                  </div>
-                  <p className="text-slate-300 mb-4">
-                    Battery Energy Storage System platform with real-time
-                    telemetry, charge/discharge command dispatch, site fleet
-                    management, and a built-in simulator for unpredictable
-                    production-like data.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "React",
-                      "Spring Boot",
-                      "MongoDB Atlas",
-                      "AWS EC2/S3",
-                    ].map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-xs text-green-300"
                       >
                         {tech}
                       </span>
