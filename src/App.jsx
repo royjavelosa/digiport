@@ -502,12 +502,12 @@ const Portfolio = () => {
                     <div className="w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20 mt-1" />
                   </div>
                   <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-500/50 transition-colors">
-                    <div className="flex items-start gap-6">
+                    <div className="flex items-start gap-6 mb-4">
                       <div className="p-4 bg-cyan-500 rounded-2xl flex items-center justify-center">
                         <PowinIcon size={32} color="white" />
                       </div>
                       <div className="flex-1">
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start">
                           <div>
                             <span className="text-slate-400 text-sm">
                               2023–2025
@@ -520,34 +520,34 @@ const Portfolio = () => {
                             </p>
                           </div>
                         </div>
-                        <ul className="space-y-2 text-slate-300">
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-cyan-400 mt-0.5"
-                            />
-                            Led Command Center UI delivery for Super Bowl LVIII
-                            and Waratah operations
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-cyan-400 mt-0.5"
-                            />
-                            Delivered features enabling Waratah commissioning
-                            acceptance
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-cyan-400 mt-0.5"
-                            />
-                            Built AWS serverless tools for hardware validation
-                            and field operations support
-                          </li>
-                        </ul>
                       </div>
                     </div>
+                    <ul className="space-y-2 text-slate-300">
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-cyan-400 mt-0.5 flex-shrink-0"
+                        />
+                        Led Command Center UI delivery for Super Bowl LVIII and
+                        Waratah operations
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-cyan-400 mt-0.5 flex-shrink-0"
+                        />
+                        Delivered features enabling Waratah commissioning
+                        acceptance
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-cyan-400 mt-0.5 flex-shrink-0"
+                        />
+                        Built AWS serverless tools for hardware validation and
+                        field operations support
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
@@ -557,12 +557,12 @@ const Portfolio = () => {
                     <div className="w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 mt-1" />
                   </div>
                   <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-blue-500/50 transition-colors">
-                    <div className="flex items-start gap-6">
+                    <div className="flex items-start gap-6 mb-4">
                       <div className="p-4 bg-blue-500 rounded-2xl flex items-center justify-center">
                         <AmdocsIcon size={32} color="white" />
                       </div>
                       <div className="flex-1">
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start">
                           <div>
                             <span className="text-slate-400 text-sm">
                               2022–2023
@@ -570,37 +570,38 @@ const Portfolio = () => {
                             <h3 className="text-2xl font-bold text-white">
                               Amdocs
                             </h3>
-                            <p className="text-blue-400">Engineering Manager</p>
+                            <p className="text-blue-400">
+                              Software Engineering Manager
+                            </p>
                           </div>
                         </div>
-                        <ul className="space-y-2 text-slate-300">
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-blue-400 mt-0.5"
-                            />
-                            Led platform delivery for a 65M-subscriber telecom
-                            system
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-blue-400 mt-0.5"
-                            />
-                            Delivered modern telecom features including eSIM,
-                            Mobile Number Portability, and Apple device
-                            integration
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-blue-400 mt-0.5"
-                            />
-                            Led global incident response and cross-team delivery
-                          </li>
-                        </ul>
                       </div>
                     </div>
+                    <ul className="space-y-2 text-slate-300">
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-blue-400 mt-0.5 flex-shrink-0"
+                        />
+                        Led platform delivery for a 65M-subscriber telecom
+                        system
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-blue-400 mt-0.5 flex-shrink-0"
+                        />
+                        Delivered modern telecom features including eSIM, Mobile
+                        Number Portability, and Apple device integration
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-blue-400 mt-0.5 flex-shrink-0"
+                        />
+                        Led global incident response and cross-team delivery
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
@@ -610,12 +611,12 @@ const Portfolio = () => {
                     <div className="w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 mt-1" />
                   </div>
                   <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-purple-500/50 transition-colors">
-                    <div className="flex items-start gap-6">
+                    <div className="flex items-start gap-6 mb-4">
                       <div className="p-4 bg-purple-500 rounded-2xl flex items-center justify-center">
                         <AmdocsIcon size={32} color="white" />
                       </div>
                       <div className="flex-1">
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start">
                           <div>
                             <span className="text-slate-400 text-sm">
                               2019–2021
@@ -626,35 +627,35 @@ const Portfolio = () => {
                             <p className="text-purple-400">Team Lead R&amp;D</p>
                           </div>
                         </div>
-                        <ul className="space-y-2 text-slate-300">
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-purple-400 mt-0.5"
-                            />
-                            Built, trained, and led 3 Scrum teams (27 engineers)
-                            delivering end-to-end R&D features for UI and
-                            backend systems
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-purple-400 mt-0.5"
-                            />
-                            Owned end-to-end delivery of key features through
-                            Agile development and production rollout
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-purple-400 mt-0.5"
-                            />
-                            Led customer-facing production support, coordinating
-                            fixes across distributed teams and time zones
-                          </li>
-                        </ul>
                       </div>
                     </div>
+                    <ul className="space-y-2 text-slate-300">
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-purple-400 mt-0.5 flex-shrink-0"
+                        />
+                        Built, trained, and led 3 Scrum teams (27 engineers)
+                        delivering end-to-end R&D features for UI and backend
+                        systems
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-purple-400 mt-0.5 flex-shrink-0"
+                        />
+                        Owned end-to-end delivery of key features through Agile
+                        development and production rollout
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-purple-400 mt-0.5 flex-shrink-0"
+                        />
+                        Led customer-facing production support, coordinating
+                        fixes across distributed teams and time zones
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
@@ -664,12 +665,12 @@ const Portfolio = () => {
                     <div className="w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20 mt-1" />
                   </div>
                   <div className="flex-1 p-4 md:p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-pink-500/50 transition-colors">
-                    <div className="flex items-start gap-6">
+                    <div className="flex items-start gap-6 mb-4">
                       <div className="p-4 bg-pink-500 rounded-2xl flex items-center justify-center">
                         <PLDTIcon size={32} color="white" />
                       </div>
                       <div className="flex-1">
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start">
                           <div>
                             <span className="text-slate-400 text-sm">
                               2008–2018
@@ -677,39 +678,40 @@ const Portfolio = () => {
                             <h3 className="text-2xl font-bold text-white">
                               PLDT
                             </h3>
-                            <p className="text-pink-400">Software Engineer</p>
+                            <p className="text-pink-400">
+                              Software Engineer, Technical Lead
+                            </p>
                           </div>
                         </div>
-                        <ul className="space-y-2 text-slate-300">
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-pink-400 mt-0.5"
-                            />
-                            Built Business Intelligence systems used by billing,
-                            finance, and executive teams to monitor telecom
-                            usage, billing accuracy, and revenue performance
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-pink-400 mt-0.5"
-                            />
-                            Designed and developed Java enterprise applications,
-                            backend services, and APIs
-                          </li>
-                          <li className="flex gap-2">
-                            <ChevronRight
-                              size={20}
-                              className="text-pink-400 mt-0.5"
-                            />
-                            Built MVP enterprise and mobile applications and
-                            evaluated emerging technologies within an R&D
-                            initiative
-                          </li>
-                        </ul>
                       </div>
                     </div>
+                    <ul className="space-y-2 text-slate-300">
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-pink-400 mt-0.5 flex-shrink-0"
+                        />
+                        Built Business Intelligence systems used by billing,
+                        finance, and executive teams to monitor telecom usage,
+                        billing accuracy, and revenue performance
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-pink-400 mt-0.5 flex-shrink-0"
+                        />
+                        Designed and developed Java enterprise applications,
+                        backend services, and APIs
+                      </li>
+                      <li className="flex gap-2">
+                        <ChevronRight
+                          size={20}
+                          className="text-pink-400 mt-0.5 flex-shrink-0"
+                        />
+                        Built MVP enterprise and mobile applications and
+                        evaluated emerging technologies within an R&D initiative
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
